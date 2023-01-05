@@ -26,7 +26,7 @@ const NewNoteScreen = () => {
     }
 
     const addNewNote = async () => {
-        await axios.post('http://localhost:3000/api/addnote', noteData);
+        await axios.post('https://note-app-hazel.vercel.app/api/addnote', noteData);
         setnoteData(defaultNote);
         alert('Note added successfully')
     }
@@ -38,7 +38,7 @@ const NewNoteScreen = () => {
                 email: userEmail.current.value,
                 password: userPassword.current.value
             }
-            const userResponse = await axios.post('http://localhost:3000/api/login', userDetails);
+            const userResponse = await axios.post('https://note-app-hazel.vercel.app/api/login', userDetails);
             if (userResponse.data.message === 'Invalid Password or Email.') {
                 setisAdmin(userResponse.data.message);
                 setTimeout(() => {

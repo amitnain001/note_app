@@ -24,7 +24,7 @@ const NodePage = ({ data }) => {
         if (loginUser) {
             let sure = confirm(`Do You Want To Delete :- ${e.title.substring(0, 50)}`);
             if (sure) {
-                await axios.delete(`http://localhost:3000/api/deletenote/${e._id}`);
+                await axios.delete(`https://note-app-hazel.vercel.app/api/deletenote/${e._id}`);
                 window.location.reload()
                 return;
             } else {
@@ -40,7 +40,7 @@ const NodePage = ({ data }) => {
         <LayoutScreen title='Node'>
             <div className="h-fit">
                 {notes && notes.map(e => {
-                    if (e.codeLanguage === 'Basic') {
+                    if (e.codeLanguage === 'Node') {
                         return (
                             <div key={e.title + Math.random} className="my-5 py-5">
                                 <div className="flex justify-between items-center">
@@ -71,7 +71,7 @@ export default NodePage;
 
 
 export async function getServerSideProps() {
-    const res = await axios.get('http://localhost:3000/api/getnotes');
+    const res = await axios.get('https://note-app-hazel.vercel.app/api/getnotes');
     const data = res.data;
     return {
         props: {

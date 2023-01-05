@@ -20,7 +20,7 @@ const LayoutScreen = ({ children, title }) => {
             if (Cookies.get('isLoggedIn')) {
                 let storedUser = JSON.parse(Cookies.get('isLoggedIn'));
                 if (!loginUser) {
-                    const userResponse = await axios.post('http://localhost:3000/api/login', storedUser);
+                    const userResponse = await axios.post('https://note-app-hazel.vercel.app/api/login', storedUser);
                     if (storedUser.email === userResponse.data.email && storedUser.password === userResponse.data.password) {
                         setloginUser(true);
                         return;
