@@ -23,7 +23,7 @@ export default function Home({ data }) {
     if (loginUser) {
       let sure = confirm(`Do You Want To Delete :- ${e.title.substring(0, 50)}`);
       if (sure) {
-        await axios.delete(`/api/deletenote/${e._id}`);
+        await axios.delete(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/deletenote/${e._id}`);
         window.location.reload()
         return;
       } else {
@@ -66,7 +66,7 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await axios.get('/api/getnotes');
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/getnotes`);
   const data = res.data;
   return {
     props: {

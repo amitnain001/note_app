@@ -38,7 +38,7 @@ const NewNoteScreen = () => {
                 email: userEmail.current.value,
                 password: userPassword.current.value
             }
-            const userResponse = await axios.post('/api/login', userDetails);
+            const userResponse = await axios.post(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/login`, userDetails);
             if (userResponse.data.message === 'Invalid Password or Email.') {
                 setisAdmin(userResponse.data.message);
                 setTimeout(() => {

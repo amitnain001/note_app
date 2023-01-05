@@ -20,7 +20,7 @@ const LayoutScreen = ({ children, title }) => {
             if (Cookies.get('isLoggedIn')) {
                 let storedUser = JSON.parse(Cookies.get('isLoggedIn'));
                 if (!loginUser) {
-                    const userResponse = await axios.post('/api/login', storedUser);
+                    const userResponse = await axios.post(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/login`, storedUser);
                     if (storedUser.email === userResponse.data.email && storedUser.password === userResponse.data.password) {
                         setloginUser(true);
                         return;
