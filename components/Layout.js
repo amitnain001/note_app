@@ -43,7 +43,7 @@ const LayoutScreen = ({ children, title }) => {
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
-                <nav className='shadow-md'>
+                <nav className='shadow-md fixed top-0 left-0 w-screen z-20 bg-white'>
                     <div className='px-5 py-3 flex items-center justify-between max-w-screen-lg mx-auto container'>
                         <div>
                             <Link href="/"><span className='text-xl font-bold'>Note App</span></Link>
