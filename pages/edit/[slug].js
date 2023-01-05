@@ -26,7 +26,7 @@ const EditScreen = ({ note }) => {
 
     const addNewNote = async () => {
         // console.log(noteData)
-        const postData = await axios.put('http://localhost:3000/api/updatenote', noteData);
+        const postData = await axios.put(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/updatenote`, noteData);
         // console.log(postData);
         Router.back();
     }
@@ -85,7 +85,7 @@ export default EditScreen
 
 
 export async function getServerSideProps({ query }) {
-    const result = await axios.get(`http://localhost:3000/api/getsinglenote/${query.slug}`,)
+    const result = await axios.get(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/getsinglenote/${query.slug}`,)
     const note = result.data
     return {
         props: {
