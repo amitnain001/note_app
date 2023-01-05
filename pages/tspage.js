@@ -24,7 +24,7 @@ const TsPage = ({ data }) => {
         if (loginUser) {
             let sure = confirm(`Do You Want To Delete :- ${e.title.substring(0, 50)}`);
             if (sure) {
-                await axios.delete(`https://note-app-hazel.vercel.app/api/deletenote/${e._id}`);
+                await axios.delete(`/api/deletenote/${e._id}`);
                 window.location.reload()
                 return;
             } else {
@@ -71,7 +71,7 @@ export default TsPage;
 
 
 export async function getServerSideProps() {
-    const res = await axios.get('https://note-app-hazel.vercel.app/api/getnotes');
+    const res = await axios.get('/api/getnotes');
     const data = res.data;
     return {
         props: {
